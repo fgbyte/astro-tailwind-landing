@@ -1,20 +1,121 @@
 <!-- Navbar -->
-<nav class="relative container mx-auto p-6">
-    <!-- Flex container -->
-    <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <div class="pt-2">
-            <img src="img/logo.svg" alt="logo">
-        </div>
-        <!-- Menu items -->
-        <div class="hidden space-x-6 md:flex">
-            <a href="#" class="hover:text-darkGrayishBlue">Pricing</a>
-            <a href="#" class="hover:text-darkGrayishBlue">Products</a>
-            <a href="#" class="hover:text-darkGrayishBlue">About Us</a>
-            <a href="#" class="hover:text-darkGrayishBlue">Careers</a>
-            <a href="#" class="hover:text-darkGrayishBlue">Community</a>
-        </div>
-        <!-- Button -->
-        <a href="#" class="hidden p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block">Get Started</a>
+<nav class="relative sticky container mx-auto p-6">
+  <!-- Flex container -->
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div class="pt-2">
+      <img src="/img/logo.svg" alt="logo" />
     </div>
+    <!-- Menu items -->
+    <div class="hidden space-x-6 md:flex">
+      <a href="#" class="hover:text-darkGrayishBlue">Pricing</a>
+      <a href="#" class="hover:text-darkGrayishBlue">Products</a>
+      <a href="#" class="hover:text-darkGrayishBlue">About Us</a>
+      <a href="#" class="hover:text-darkGrayishBlue">Careers</a>
+      <a href="#" class="hover:text-darkGrayishBlue">Community</a>
+    </div>
+    <!-- Button -->
+    <a
+      href="#"
+      class="hidden p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block"
+      >Get Started</a
+    >
+
+    <!-- Hamburger Icon -->
+    <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden">
+    <div
+      id="menu"
+      class="absolute flex-col items-center self-end py-8 space-y-6 font-bold bg-white sm:w-auto left-6 right-6 drop-shadow-md opacity-0">
+      <a href="#" class="hover:text-darkGrayishBlue">Pricing</a>
+      <a href="#" class="hover:text-darkGrayishBlue">Products</a>
+      <a href="#" class="hover:text-darkGrayishBlue">About Us</a>
+      <a href="#" class="hover:text-darkGrayishBlue">Careers</a>
+      <a href="#" class="hover:text-darkGrayishBlue">Community</a>
+    </div>
+  </div>
 </nav>
+
+<!-- CSS Styles -->
+<style>
+  /* Hamburger Menu */
+  .hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 2rem, 0;
+    transition: all 0.25s;
+    position: relative;
+  }
+
+  /* burger button*/
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.5rem;
+    height: 0.15rem;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+
+  .hamburger-middle {
+    transform: translateY(0.4375rem);
+  }
+  .hamburger-bottom {
+    transform: translateY(0.875rem);
+  }
+
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+  }
+
+  .opacity-0 {
+    opacity: 0;
+  }
+
+  .opacity-100 {
+    opacity: 1;
+  }
+
+  .transition-opacity {
+    transition-property: opacity;
+  }
+</style>
+<!-- Vanilla JS -->
+<script>
+  const btn = document.getElementById("menu-btn");
+  const nav = document.getElementById("menu");
+
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("open");
+    nav.classList.toggle("flex");
+    nav.classList.toggle("opacity-0");
+    nav.classList.toggle("opacity-100");
+    nav.classList.toggle('transition-opacity')
+    nav.classList.toggle('duration-500')
+  });
+</script>

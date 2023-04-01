@@ -1,0 +1,46 @@
+---
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+import Navbar from "@components/navbar.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en"  data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
+</html>
+
+
+<style>
+      body {
+      background-image: url('/img/bg-tablet-pattern.svg');
+      background-repeat: no-repeat;
+      background-size: 50rem;
+      background-position: 90% -25%;
+  }
+  #cta {
+      background-image: url('/img/bg-simplify-section-desktop.svg');
+      background-repeat: no-repeat;
+  }
+  @media(max-width: 36rem) {
+      body {
+          background-position: 3.125rem -3.125rem;
+          background-size: 31.25rem;
+      }
+  
+      #cta {
+          background-image: url('/img/bg-simplify-section-mobile.svg');
+      }
+  }
+</style>

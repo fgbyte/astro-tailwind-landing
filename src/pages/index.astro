@@ -1,23 +1,15 @@
 ---
-export interface Props {
-	title: string;
-}
-const { title } = Astro.props;
-import Navbar from '@components/navbar.astro';
-import HeroSection from '@components/heroSection.astro';
+import BaseLayout from "@layouts/baseLayout.astro";
+import HeroSection from "sections/heroSection.astro";
+import FeaturesSection from "sections/featuresSection.astro";
+import TestimonialSection from "sections/testimonialSection.astro";
+import CtaSection from "sections/ctaSection.astro";
+import Footer from "sections/footer.astro";
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Navbar />
-    <HeroSection />
-  </body>
-</html>
+<BaseLayout title="Home">
+<HeroSection />
+<FeaturesSection />
+<TestimonialSection />
+<CtaSection />
+<Footer />
+</BaseLayout>
